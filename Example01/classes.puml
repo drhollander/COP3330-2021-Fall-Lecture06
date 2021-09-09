@@ -1,0 +1,36 @@
+@startuml
+class Application {
+    main(String[])
+}
+
+Application *-- Person
+
+class Person {
+  int: energyLevel
+  int: thirstLevel
+
+  eat()
+  drink()
+  exercise()
+  sleep(Time, Duration)
+  die()
+  work()
+}
+
+Person -- Time
+Person -- Duration
+Person -- ExerciseMethod
+
+class Time
+class Duration
+
+interface ExerciseMethod {
+  exercise(Duration)
+}
+
+class Biking
+class Rowing
+
+ExerciseMethod <|.. Biking
+ExerciseMethod <|.. Rowing
+@enduml
